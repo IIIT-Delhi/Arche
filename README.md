@@ -2,114 +2,202 @@
 
 ![rsz_1arche_logo_grayscale](https://cloud.githubusercontent.com/assets/20173739/23075475/a1edb11a-f562-11e6-90c0-eb11968a2fad.png)
 
-**Arche** (meaning ``beginning``) is an initiative to help newcomers contribute to open-source projects hosted on GitHub. **Arche** contains a Step-By-Step guide on how to contribute and aims to remove the hesitation present amongst newcomers. **Arche** follows common standard workflow guidelines that help maintain a project. The guidelines presented here are applicable for any general project. These guidelines however work with **Arche** itself. Follow along to learn more!!
+**Arche** is an initiative to help newcomers contribute to open-source projects hosted on GitHub.
 
-## Forking & Cloning
+This README contains a step-by-step guide on how to contribute and aims to remove the hesitation present amongst newcomers. **Arche** follows common standard workflow guidelines that help maintain a project. The guidelines presented here are applicable for any general project. These guidelines however work with **Arche** itself.
 
-Forking & Cloning are the first steps required before working on any Project.These Steps enable us to work on our copy of the project without affecting the original project. To successfully fork and clone, follow these steps:
+Follow along to learn more!
 
-**Step 1)** Head over to ``https://github.com/IIIT-Delhi/Arche`` and Click on the Fork Button.
+## Before you start
+
+Before we get started, it's better if we get on the same page. We request you to get familiar with basic Linux commands, so that it's easier for you to follow through.
+
+A repository can be part of only 1 project. A project may have multiple repositories (by virtue of forking). Don't worry if you don't get this right now. Just remember this though.
+
+We refer to the repository created on Github as the server repository. The server repository is the place where the original code resides, which is being used to run the application, or contains critical data, or something on the same lines. The local repository is (usually) a copy of the server repository but on your machine. Any changes you do to the local repository will not reflect in the server repository till you push them (more on this later). Remember,
+
+> What happens on your machine, stays in your machine (unless you push it as well)
+
+## Forking and Cloning
+
+Forking and Cloning are the first steps required before working on any project.
+
+Forking a project ensures that the original project isn't affected by any incorrect push you make. It's recommended practice to always fork a project and work on your copy of the project, instead of breaking the original project.
+
+Cloning helps to create a local copy of the repository chosen so that you can work on it, make a few fixes and update the server repository by pushing your changes. To successfully fork and clone, follow these steps:
+
+> Step 1
+
+Head over to ``https://github.com/IIIT-Delhi/Arche`` and click on the fork button
 
 ![fork](https://cloud.githubusercontent.com/assets/20173739/22628529/59a828a6-ebfb-11e6-91d0-d2e8f9ea818d.png)
 
-This will create a Copy of ``Arche`` into your account.
-You now have a copy of this project at ``https://github.com/``**yourUsername**``/Arche``
+This will create a copy of ``Arche`` in your account. <br>
+You should now have a copy of this project at ``https://github.com/``**yourUsername**``/Arche``
+If you don't, then that means you weren't able to fork this project.
 
-**Step 2)** Copy this link ``https://github.com/``**yourUsername**``/Arche.git``
+> Step 2
 
-Fire up your terminal and change directory to Desktop, Execute the following command,
+Since you have made a successful fork, it's time to contribute to the project as well. To do the same, you first and foremost need to clone it.
 
-``git clone https://github.com/``**yourUsername**``/Arche.git``
+Fire up your terminal and change your directory to Desktop. After that, execute the command:
+
+<pre>
+git clone https://github.com/<b>yourUsername</b>/Arche.git
+</pre>
 
 ![gitclone](https://cloud.githubusercontent.com/assets/20173739/22628542/b63b5e4e-ebfb-11e6-8bf9-187ac0d37eb8.png)
 
-This should create a folder named ``Arche`` on your Desktop. Change into ``Arche`` using the usual ``cd`` command on your terminal.
+This should create a directory named ``Arche`` where you are currently working, which should be your Desktop.
 
-The Cloning Process does the following:
+Navigate into ``Arche`` and list the contents of the directory.
+If you see a ``README.md`` file and a ``Website`` directory, you have successfully cloned a repository! Congrats! :smile:
 
-1) Creates a local copy (on your PC) of the Forked Project.
+## Remotes
 
-2) The Cloned Folder (local) is now set up to sync with the Online Hosted Forked Repository. Cloning does this automatically.
+Remotes are aliases or nicknames for locations to push and pull from.
 
-To confirm this, execute this command ``git remote -v``
+The ``push`` command is used to send your changes to the target repository whereas the ``pull`` command is used to get the latest version/copy of the target repository.
 
-You should see something like this,
+Check the remotes listed for your local repository with the following command:
+<pre>
+git remote -v
+</pre>
+
+You should see something like this
 
 ![remote-v](https://cloud.githubusercontent.com/assets/20173739/22628551/f47eb098-ebfb-11e6-81a1-a220c8090d4f.png)
 
-Basically, what this indicates is that you can sync your local copy and your forked copy via the keyword ``origin`` and via the commands ``push`` & ``pull``.
+Now, we are going to add a new ``remote`` i.e. we will enable our local repository to sync up with another repository too rather than just ``origin``.
 
-**Step 3)** Now, we are gonna add a new ``remote`` i.e. we will enable our local copy to sync with another repository too rather than just ``origin``.
-This another repository will be the original Project (not the forked one!)
-To do this, Execute the following command.
+This another repository will be the original project sitting in the IIIT-Delhi namespace.
 
-``git remote add upstream https://github.com/IIIT-Delhi/Arche.git`` (Not **yourUsername** this time!)
+To add the IIIT-Delhi version of Arche to your local repository, follow these steps:
 
-Checking ``git remote -v`` now will show you both repositories that your local copy is able to sync with.
+> Step 1
+
+Add a new remote with the nickname ``upstream`` and the target location as ``https://github.com/IIIT-Delhi/Arche.git`` with the help of the command:
+
+<pre>
+git remote add upstream https://github.com/IIIT-Delhi/Arche.git
+</pre>
+
+> Step 2
+
+Confirm the addition of the new remote by listing down all the remotes:
+
+<pre>
+git remote -v
+</pre>
 
 ![upstream](https://cloud.githubusercontent.com/assets/20173739/22628566/52c54284-ebfc-11e6-8bd6-4c08b6620cee.png)
 
-**Step 4)** Finally, use the following command so that your local copy tracks the ``upstream``.
+> Step 3
 
-Execute this ``git branch -u upstream/master``
+Finally, use the following command so that your local repository starts tracking the ``upstream`` remote:
+
+<pre>
+git fetch upstream
+git branch -u upstream/master
+</pre>
 
 ![track](https://cloud.githubusercontent.com/assets/20173739/22628626/263f2364-ebfd-11e6-9aae-f4cd514850d8.png)
 
-This way, your cloned folder has 2 remotes now, one being the ``origin`` and the other being ``upstream``.
-There is no direct way of syncing the Forked Repo (Origin) and the Original Repo (Upstream). Thus, the cloned repo acts as a bridge between the two. For syncing the origin and upstream, one can pull changes from upstream and push changes to origin.
+
+There is no direct way of syncing the forked repository (Origin) and the original repository (Upstream). Thus, your local repository acts as a bridge between the two. For syncing the origin and upstream, one can pull changes from upstream and push changes to origin.
 
 ## Branches
 
-Very Often, one needs to work on new features and builds that are not fully ready. Thus, Git Supports Branches. The default branch for every project is known as the ``master`` branch. The ``master`` branch is supposed to have a fully stable project. Hence, for working on Experimental features, additional branches are created. While working on these additional branches, the ``master`` branch isn't affected. For solving any issue or working on any feature, always create a new branch!
+Very often, one needs to work on new features and builds that are not fully ready. For this, git has a feature called Branches. The default branch for every project is known as the ``master`` branch. The ``master`` branch is supposed to have a fully stable project. Hence, for working on experimental features, additional branches are created. While working on these additional branches, the ``master`` branch isn't affected at all.
 
-**Step 1)** To create a new branch, use this ``git branch experimental`` (Here, ``experimental`` is the branch name, This can be changed)
-However, this does not take us to the new ``experimental`` branch, it just creates one.
+For solving any issue or working on any feature, always create a new branch! The way to go about it as follows:
 
-**Step 2)** To work on this ``experimental`` branch,
-use the following ``git checkout experimental``.
+> Step 1
+
+Create a new branch:
+
+<pre>
+git branch <b>yourUsername</b>
+</pre>
+
+The above command just creates a branch. It doesn't set it as the current working branch.
+
+> Step 2
+
+To work on your branch, issue the following command:
+
+<pre>
+git checkout <b>yourUsername</b>
+</pre>
 
 ![branch](https://cloud.githubusercontent.com/assets/20173739/22628855/8311eb72-ec01-11e6-833b-1bfee9cbd05f.png)
 
-Remember: While solving an issue, always work on a new Branch. Contributions from the ``master`` branch will simply be rejected with a polite reminder.
+The above command sets your current working branch as **yourUsername**.
+
+> Remember: While solving an issue, always work on a new Branch. Contributions to the ``master`` branch will simply be rejected with a polite reminder.
 
 ## Adding & Committing Files
 
-Please switch to another branch before continuing. This is not to be done inside the master branch.
+Now we shall finally make a contribution the repository. Please ensure that you have switched away from the ``master`` branch.
 
-**Step 1)** Do Some Work!!
+For contributing to any project one needs to either create new files or modify some existing files. To do the same, follow along:
 
-For Contributing, You would obviously want to create new files OR modify some existing files. Go ahead and do that in your cloned copy just like you would do with any other file normally. For Example, You should edit the ``index.html`` file inside the ``Website`` folder with ``your name as a element of the list`` on your text-editor.
+> Step 1
 
-To do this,
+Identify which issue you are going to work on. If you don't find one, then it's possible you are suggesting a feature enhancement. Be descriptive when creating an issue. We would recommend you to use **yourUsername** as the title of the Issue.
 
-a) Open the ``index.html`` in your text editor.
+Make sure you assign the issue to yourself! It should look something like this:
 
-b) Search for the comment, ``Insert your names here`` in the file.
+![Step 1](https://cloud.githubusercontent.com/assets/20173739/23581668/1d30a0d0-013e-11e7-8a62-4e9098d79d60.png)
 
-c) Add your name as a element of the same list.
+> Step 2
 
-d) Check the file by opening it in a browser to make sure your name is visible.
+To contribute to the ``Arche`` project you should edit the ``index.html`` file inside the ``Website`` directory. Add your name as a list element to the file with the help of your text-editor.
 
-![1](https://cloud.githubusercontent.com/assets/20173739/23581386/a99cc5ae-0138-11e7-87f6-a2f6d5477f5e.png)
+![Step 2a](https://cloud.githubusercontent.com/assets/20173739/23581386/a99cc5ae-0138-11e7-87f6-a2f6d5477f5e.png)
 
-The HTML when opened in Browser will add your name in the list as shown below.
+Now, save the file and check if it reflects the changes locally by opening it in a browser to make sure your name is visible.
 
-![2](https://cloud.githubusercontent.com/assets/20173739/23581396/cf39701e-0138-11e7-97cb-1db78aefe1af.png)
+The HTML when opened in a Browser will show your name in the list:
 
-**Step 2)**
-After saving your file, execute this ``git status``. Git will show you that the file you have created / modified is untracked.
+![Step 2b](https://cloud.githubusercontent.com/assets/20173739/23581396/cf39701e-0138-11e7-97cb-1db78aefe1af.png)
 
-**Step 3)**
-To track this file, execute this ``git add Website/index.html``.
+> Step 3
+
+After saving your file, execute the following: 
+
+<pre>
+git status
+</pre>
+
+This will show you that the file you have created/modified is untracked.
+
+> Step 4
+
+To track this file, execute the following:
+
+<pre>
+git add Website/index.html
+</pre>
 
 ![3](https://cloud.githubusercontent.com/assets/20173739/23581478/a10f8316-013a-11e7-9465-6b6579b3280f.png)
 
-All set, You are now ready to acknowledge, realize and tell the world what you have changed!!
+All set. You are now ready to acknowledge, realize and tell the world what you have changed! :smile:
 
-**Step 4)** For this, use ``git commit``. This basically associates a message with what you have changed in the project.
+> Step 5
+
+Now it's time to ``commit`` our changes so that we can ``push`` them ahead. For this, use the following command:
+
+<pre>
+git commit
+</pre>
+
+This basically associates a message with what you have changed in the project.
 
 Ideally, one should commit per every logical change. Executing ``git commit`` will open your default editor to be used with git.
-Mine is set up to be atom. On executing, your editor will open automatically with the following contents.
+Ours is set up to be atom. Should you want to change yours from vim, checkout [this stackoverflow answer](http://stackoverflow.com/questions/2596805/how-do-i-make-git-use-the-editor-of-my-choice-for-commits).
+
+On executing, your editor will open automatically with the following contents:
 
 ![4](https://cloud.githubusercontent.com/assets/20173739/23581513/7a9ea4ae-013b-11e7-9917-2545cbebebee.png)
 
@@ -130,63 +218,74 @@ Every Commit message should have the following 3 things:
 
 ![6](https://cloud.githubusercontent.com/assets/20173739/23581568/3496f9a6-013c-11e7-881c-1829e7da5f4a.png)
 
-At this stage, you have committed this change but this hasn't been synced with both of your remote online repos (Origin & Upstream)
-This simply means that the changes you have made only exist in your local PC and not on github!
+> Step 6
 
-To push these changes, use the following command
-``git push origin experimental``
-This command pushes the changes you made to the the forked repository (Origin).
-**Note: Never Push to Upstream!!**
+At this stage, you have committed this change but this hasn't been synced with both of your server repositories (origin and upstream)
+This simply means that the changes you have made only exist in your local repository and not on Github!
+
+To push these changes, use the following command:
+
+<pre>
+git push origin <b>yourUsername</b>
+</pre>
+
+This command pushes the changes you made to the the forked repository (origin).
+
+**Note: Never Push to Upstream!**
 
 ![push](https://cloud.githubusercontent.com/assets/20173739/22629213/e7320136-ec07-11e6-8132-f53981bdd4ce.png)
 
-Your forked Repository will now look like this
+Your forked repository will now look like this:
 
 ![8](https://cloud.githubusercontent.com/assets/20173739/23581704/3c0928be-013f-11e7-9d83-c00ef9b59ec3.png)
 
-## Submitting a PR (Pull Request)
+## Submitting a Pull Request (PR)
 
-After updating your personal copy with the changes you made. You would want to merge your changes in the actual project itself!
-To accomplish this,
+After updating your personal copy with the changes you made, you would want to merge your changes in the actual project itself!
 
-**Step 1)**
-Simply Click ``Compare and Pull Request``
-You will be directed to this Page
+To accomplish this, follow these steps:
+
+> Step 1
+
+Simply Click ``Compare and Pull Request`` and you will be directed to this page:
 
 ![9](https://cloud.githubusercontent.com/assets/20173739/23581746/6e0a48e2-0140-11e7-8e29-32d58157e727.png)
 
-**Step 2)**
+> Step 2
+
 Click on ``Create Pull Request`` and you are done.
 
-When your PR is merged by the maintainer, voila, you have successfully contributed to the ``Arche`` Project.
+When your PR is merged by the maintainer, voila, you have successfully contributed to the ``Arche`` project!
+
+Congratulations! You did it, you sexy beast! :smile:
 
 ## Final Steps
-When your contribution has been accepted, Notice that your contribution has been merged into the ``master`` branch of the Original Repo (Upstream).
-The ``experimental`` branch doesn't even exist on Upstream. Now, your cloned folder and the Upstream are NOT in sync.
-(As the new README.md file exists on master branch of Upstream while it exists on experimental branch of cloned repository.)
-To update your cloned folder according to your Upstream, execute the following:
 
-**Step 1)**
-``git pull upstream master``
+When your contribution has been accepted, notice that your contribution has been merged into the ``master`` branch of the original repository (Upstream).
 
-By doing this, your master branch in the cloned repo will pull changes from the Upstream and thus both of them will be in Sync now.
+The ``**yourUsername**`` branch doesn't even exist on Upstream anymore. Now, your local repository and the Upstream are **NOT** in sync.
+The reason behind this is that the new ``README.md`` file exists on ``master`` branch of Upstream while it exists on ``**yourUsername**`` branch of the cloned repository.
 
-For a similar reason, your fork (Origin) and the original repo (Upstream) will be out of sync.
+To update your cloned repository according to your Upstream, execute the following:
 
-**Step 2)**
+> Step 1
+
+<pre>
+git pull upstream master
+</pre>
+
+By doing this, your master branch in the cloned repository will pull changes from the Upstream and thus both of them will be in sync now.
+
+For a similar reason, your fork (Origin) and the original repository (Upstream) will be out of sync.
+
+> Step 2
+
 To update your fork, execute the following:
 
-``git push origin master``
+<pre>
+git push origin master
+</pre>
 
-It is important that the above 2 commands are done in the same order as given above i.e pull first and push second.
+It is important that the above 2 commands are done in the same order as given above i.e. pull first and push second.
 
-## What's Next ?
-
-As a part of finally completing these guidelines, please create an issue by your name.
-Please assign the Issue to yourself. It should look something like this.
-
-![7](https://cloud.githubusercontent.com/assets/20173739/23581668/1d30a0d0-013e-11e7-8a62-4e9098d79d60.png)
-
-Change the ``index.html`` file by adding your name as a Contributor of this Repo. Follow
-the guidelines above to successfully make a pull request and acknowledge yourself as a
-contributor!
+# Fin.
