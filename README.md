@@ -101,7 +101,7 @@ git fetch upstream
 git branch -u upstream/master
 </pre>
 
-![track](https://cloud.githubusercontent.com/assets/20173739/22628626/263f2364-ebfd-11e6-9aae-f4cd514850d8.png)
+![1](https://cloud.githubusercontent.com/assets/20173739/24585755/aa98b458-17af-11e7-83fe-9749551452bd.png)
 
 
 There is no direct way of syncing the forked repository (Origin) and the original repository (Upstream). Thus, your local repository acts as a bridge between the two. For syncing the origin and upstream, one can pull changes from upstream and push changes to origin.
@@ -130,7 +130,7 @@ To work on your branch, issue the following command:
 git checkout <b>yourUsername</b>
 </pre>
 
-![branch](https://cloud.githubusercontent.com/assets/20173739/22628855/8311eb72-ec01-11e6-833b-1bfee9cbd05f.png)
+![2](https://cloud.githubusercontent.com/assets/20173739/24585784/14c0f3e0-17b0-11e7-8d45-8b6721b3146c.png)
 
 The above command sets your current working branch as **yourUsername**.
 
@@ -164,7 +164,7 @@ The HTML when opened in a Browser will show your name in the list:
 
 > Step 3
 
-After saving your file, execute the following: 
+After saving your file, execute the following:
 
 <pre>
 git status
@@ -180,7 +180,7 @@ To track this file, execute the following:
 git add Website/index.html
 </pre>
 
-![3](https://cloud.githubusercontent.com/assets/20173739/23581478/a10f8316-013a-11e7-9465-6b6579b3280f.png)
+![3](https://cloud.githubusercontent.com/assets/20173739/24585821/065986d6-17b1-11e7-8fd9-ddc92615b172.png)
 
 All set. You are now ready to acknowledge, realize and tell the world what you have changed! :smile:
 
@@ -214,9 +214,9 @@ Every Commit message should have the following 3 things:
       Note: Use Closes for issues that have been done for the sake of Enhancement
             Use Fixes for issues that have been done for the sake of Fixing a Bug
 
-![5](https://cloud.githubusercontent.com/assets/20173739/23581551/eb9157ce-013b-11e7-8e89-5381bebecfba.png)
+![4](https://cloud.githubusercontent.com/assets/20173739/24585851/87cf443a-17b1-11e7-93cd-9d1b2f19c212.png)
 
-![6](https://cloud.githubusercontent.com/assets/20173739/23581568/3496f9a6-013c-11e7-881c-1829e7da5f4a.png)
+![5](https://cloud.githubusercontent.com/assets/20173739/24585856/cb7a9626-17b1-11e7-8e9f-c52101550c9c.png)
 
 > Step 6
 
@@ -233,11 +233,11 @@ This command pushes the changes you made to the the forked repository (origin).
 
 **Note: Never Push to Upstream!**
 
-![push](https://cloud.githubusercontent.com/assets/20173739/22629213/e7320136-ec07-11e6-8132-f53981bdd4ce.png)
+![6](https://cloud.githubusercontent.com/assets/20173739/24585896/cbd040fc-17b2-11e7-9511-494cb787c66f.png)
 
 Your forked repository will now look like this:
 
-![8](https://cloud.githubusercontent.com/assets/20173739/23581704/3c0928be-013f-11e7-9d83-c00ef9b59ec3.png)
+![7](https://cloud.githubusercontent.com/assets/20173739/24585905/071de3e4-17b3-11e7-8c76-6b5dfecb1d48.png)
 
 ## Submitting a Pull Request (PR)
 
@@ -249,7 +249,7 @@ To accomplish this, follow these steps:
 
 Simply Click ``Compare and Pull Request`` and you will be directed to this page:
 
-![9](https://cloud.githubusercontent.com/assets/20173739/23581746/6e0a48e2-0140-11e7-8e29-32d58157e727.png)
+![8](https://cloud.githubusercontent.com/assets/20173739/24585913/3fd0dfd4-17b3-11e7-9225-716888e5d6d8.png)
 
 > Step 2
 
@@ -265,6 +265,8 @@ When your contribution has been accepted, notice that your contribution has been
 
 The ``**yourUsername**`` branch doesn't even exist on Upstream anymore. Now, your local repository and the Upstream are **NOT** in sync.
 The reason behind this is that the new ``README.md`` file exists on ``master`` branch of Upstream while it exists on ``**yourUsername**`` branch of the cloned repository.
+
+``Please switch to your master branch on your local copy before proceeding.``
 
 To update your cloned repository according to your Upstream, execute the following:
 
