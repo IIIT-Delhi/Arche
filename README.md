@@ -146,7 +146,7 @@ For contributing to any project one needs to either create new files or modify s
 
 Identify which issue you are going to work on. If you don't find one, then it's possible you are suggesting a feature enhancement. Be descriptive when creating an issue. We would recommend you to use **yourUsername** as the title of the Issue.
 
-Make sure you assign the issue to yourself! It should look something like this:
+Make sure you wait for the issue to be assigned to you by a maintainer. It should look something like this:
 
 ![Step 1](https://cloud.githubusercontent.com/assets/20173739/23581668/1d30a0d0-013e-11e7-8a62-4e9098d79d60.png)
 
