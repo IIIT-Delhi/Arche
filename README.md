@@ -38,7 +38,7 @@ If you don't, then that means you weren't able to fork this project.
 
 > Step 2
 
-Since you have made a successful fork, it's time to contribute to the project as well. To do the same, you first and foremost need to clone it.
+Since you have made a successful fork, it's now time to contribute to the project as well. To do the same, you first and foremost need to clone it.
 
 Fire up your terminal and change your directory to Desktop. After that, execute the command:
 
