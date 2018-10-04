@@ -12,7 +12,7 @@ Follow along to learn more!
 
 Before we get started, it's better if we get on the same page. We request you to get familiar with basic Linux commands, so that it's easier for you to follow through.
 
-A repository can be part of only 1 project. A project may have multiple repositories (by virtue of forking). Don't worry if you don't get this right now. Just remember this though.
+A repository can be part of only 1 project. A project may have multiple repositories (by virtue of forking). Don't worry if you don't get this right at the moment. Just remember this though.
 
 We refer to the repository created on Github as the server repository. The server repository is the place where the original code resides, which is being used to run the application, or contains critical data, or something on the same lines. The local repository is (usually) a copy of the server repository but on your machine. Any changes you do to the local repository will not reflect in the server repository till you push them (more on this later). Remember,
 
